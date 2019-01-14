@@ -1,0 +1,161 @@
+\pdfminorversion=4
+\documentclass{beamer}
+
+\usepackage{url}
+\usepackage{soul}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{verbatim}
+\usepackage{listings}
+\lstset{
+  language=bash,
+  basicstyle=\ttfamily
+}
+
+
+\title[WEJ\v CF -- B\' il\' y Potok]{A brief tutorial to Git}
+\author[M. \v Simko]{\textbf{Miroslav \v Simko} \\
+Nuclear Physics Institute \\
+of the Czech Academy of Sciences}
+\date{January 13--19, 2019}
+
+\titlegraphic{ 
+\includegraphics[width=3cm]{git_logo}\hspace*{2cm}~%
+\includegraphics[width=.8cm]{logo_rez}\hspace*{2cm}~%
+\includegraphics[width=2cm]{lev}
+}
+
+
+\setbeamercovered{transparent}
+\usetheme{Singapore}
+\usecolortheme{dove}
+% \usecolortheme{crane}  % a la Wagner
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{framed}
+\usepackage{siunitx}
+\usepackage{upgreek,xspace}
+\newcommand{\LambdaC}{\ensuremath{\Lambda_\mathsf{c}}}
+\newcommand{\dedx}{\ensuremath{\mathsf{d}E/\mathsf{d}x}}
+\newcommand{\KzeroS}{\ensuremath{\mathsf{K^0_S}}}
+\newcommand{\pt}{\ensuremath{p_{\text{T}}}}
+\newcommand{\dd}{\ensuremath{\mathsf{d}}}
+\newcommand{\ddd}{\ensuremath{\,\mathsf{d}}}
+\newcommand{\Raa}{\ensuremath{R_\mathsf{AA}}}
+\newcommand{\Ds}{\ensuremath{\mathsf{D_s}}}
+
+%-------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------
+
+\begin{document}
+%-------------------------------------------------------------------------------------------------
+\begin{frame}%[plain]
+ \titlepage
+\end{frame}
+
+%-------------------------------------------------------------------------------------------------
+
+\begin{frame}%[plain]
+\frametitle{About Git}
+\begin{columns}
+\column{0.7\textwidth}
+\begin{itemize}
+\item Version Control System (VCS) \dots~simmilar to CVS used at STAR
+\item Co-developed by Linus Torvalds \pause
+\item Good at
+\begin{itemize}
+\item Distributed (not having to be on the same network)
+\item Code maintenance
+\item Back up (Github, etc.)
+\item Coordination of multiple people
+\item Multiple versions of code
+\end{itemize}
+\end{itemize}
+
+\column{0.3\textwidth}
+\includegraphics[width=\textwidth]{git_logo}\\[.5cm]
+\includegraphics[width=\textwidth]{Cohen-Linus-Torvalds}
+\end{columns}
+
+
+ 
+\end{frame}
+%-------------------------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{What git does}
+\begin{itemize}
+ \item Keeps track of code history
+ \item Makes ``snapshots'' of your files\pause
+ \item You choose when to take a snapshot
+ \item You can visit any snapshot at any time
+ \item Who changed what when
+ \item You can create multiple versions
+\end{itemize}
+
+\end{frame}
+%-------------------------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{How to install}
+\begin{itemize}
+ \item Debian (Ubuntu,~\dots)\\
+ \verb=$ sudo apt-get install git=
+ \item Fedora, \dots\\
+ \verb=$ sudo yum install git=
+ \item Mac \dots already installed, \textit{probably}
+ \item Windows\\
+ \url{http://git-scm.com/download/win}\\[.5cm]\pause
+ \item \verb=git config --global user.name 'blah'=
+ \item \verb=git config --global user.email 'blah@fjfi.cvut.cz'=
+
+ 
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Basic commands}
+\begin{itemize}
+\item \verb=$ git init          #starts git repository=\pause
+\item \verb=$ git add <file>    #tracks changes in <file>=\pause
+\item \verb=$ git commit -a -m  #snapshot of the code=\pause
+\item \verb=$ git status        #what you did lately=\pause
+\item \verb=$ git log           #log of all commits=\pause
+\item \verb=$ git checkout <ID> #go to a commit=\pause
+\item \verb=$ git clone <repo>  #downloads a repo=\pause
+\item \verb=$ git push          #uploads code to a remote=\pause
+\item \verb=$ git pull          #downloads code from a remote=
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Github}
+\begin{itemize}
+\item Also Gitlab, Bitbucket, \dots
+\item \url{https://github.com}
+\item \url{https://gitlab.fjfi.cvut.cz}
+\end{itemize}
+
+\end{frame}
+
+%-------------------------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Branching}
+\begin{itemize}
+\item<1,2> \verb=git checkout -b <branchName>=\\
+\verb=# Creates a branch=
+\item<1,2> \verb=git branch      #displays all branches=
+\item<1,2> \verb=git merge=
+\item<2> \verb=$ git push --set-upstream <remote> <branch>=\pause
+\item<3> \verb=$ git cherry-pick <commit>=\\
+\verb=# Useful for two versions of similar code=
+\end{itemize}
+
+\end{frame}
+%-------------------------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------------------------
+\end{document}

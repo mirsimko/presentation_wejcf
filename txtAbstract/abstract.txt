@@ -1,0 +1,2 @@
+GIT is a version control system that tracks changes in computer files such as code. It is also a tool for collaboration and an easy way to back up computer code. In the recent years it has become a more and more indispensable tool for collaboration of entire teams on one piece of code and a program that has truly revolutionized the industry standards for management of software projects. In this tutorial, I will introduce  
+GIT from the point of view of a user and show several tips and tricks for management of software by one or more people at the same time.             
